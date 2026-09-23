@@ -1,0 +1,30 @@
+# Render "Blueprint" — deploys the FastAPI backend + a managed Postgres
+# database together. In the Render dashboard: New -> Blueprint -> point at
+# your repo -> Render reads this file automatically.
+databases:
+  - name: floatchat-db
+    plan: free
+    databaseName: floatchat
+    user: floatchat
+
+services:
+  - type: web
+    name: floatchat-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: floatchat-db
+          property: connectionString
+      - key: ANTHROPIC_API_KEY
+        sync: false        # set manually in the Render dashboard (secret)
+      - key: CLAUDE_MODEL
+        value: claude-sonnet-4-6
+      - key: ARGOVIS_BASE_URL
+        value: https://argovis-api.colorado.edu
+      - key: ARGOVIS_API_KEY
+        sync: false
