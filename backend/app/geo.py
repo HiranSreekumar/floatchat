@@ -1,6 +1,6 @@
 """
 Gazetteer of Indian coastal / ocean reference points, used to ground
-Claude's geographic reasoning so it anchors to known coordinates instead of
+LLM geographic reasoning so it anchors to known coordinates instead of
 inventing them for named places.
 """
 

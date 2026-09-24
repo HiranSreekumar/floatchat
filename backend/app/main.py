@@ -1,8 +1,8 @@
 """
 FloatChat backend. Pipeline per request to /api/chat:
-  1. nl_parser.parse_query()       -- Claude call #1: question -> structured intent
+  1. nl_parser.parse_query()       -- Gemini call #1: question -> structured intent
   2. sql_builder.build_and_run()   -- deterministic SQL against Postgres (no LLM)
-  3. explainer.explain()           -- Claude call #2: real results -> grounded NL answer
+  3. explainer.explain()           -- Gemini call #2: real results -> grounded NL answer
 """
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware

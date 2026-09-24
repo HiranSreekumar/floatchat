@@ -1,8 +1,23 @@
 import { useMemo } from "react";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, LinearScale, PointElement, LineElement, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend
+);
 
 const PALETTE = ["#4EE2C0", "#F2A65A", "#6FB1E0", "#C084FC", "#F87171", "#FBBF24"];
 

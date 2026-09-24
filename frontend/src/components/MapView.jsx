@@ -18,8 +18,8 @@ export default function MapView({ locations, onSelectProfile }) {
     <div className="map-wrap">
       <MapContainer center={[15, 78]} zoom={5} style={{ width: "100%", height: "100%" }}>
         <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          attribution='&copy; OpenStreetMap &copy; CARTO'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; OpenStreetMap contributors'
           maxZoom={12}
         />
         {hasLocations && <FitBounds locations={locations} />}
